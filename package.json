@@ -8,7 +8,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vertx/core": "^3.9.3"
+    "@vertx/core": "^3.9.3",
+    "@vertx/web": "^3.9.3",
+    "@vertx/web-templ-handlebars": "^3.9.3"
   },
   "devDependencies": {
     "@vertx/unit": "^3.9.3"
