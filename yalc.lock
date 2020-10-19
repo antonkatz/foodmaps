@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "packages": {
+    "@onest.network/correct-js": {
+      "signature": "e4df74fd5a458788ea6c50e4a56132ea",
+      "file": true,
+      "replaced": "file:../utils/correct-js"
+    },
+    "@onest.network/simple-db": {
+      "signature": "5ddc4fd95f3113ebf5a54bb1ee7b6a90",
+      "file": true
+    }
+  }
+}

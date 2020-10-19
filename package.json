@@ -1,23 +1,12 @@
 {
-  "name": "foodmaps",
-  "version": "1.0.0",
-  "private": true,
-  "description": "A barebones es4x application",
-  "main": "index.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@vertx/core": "^3.9.3",
-    "@vertx/web": "^3.9.3",
-    "@vertx/web-templ-handlebars": "^3.9.3"
-  },
-  "devDependencies": {
-    "@vertx/unit": "^3.9.3"
-  },
+  "name": "FoodMaps",
   "scripts": {
-    "postinstall": "es4x install",
-    "start": "es4x",
-    "test": "es4x test index.test.js"
+    "compile-templates": "yarn handlebars -e hbs ./assets/templates/ -f ./assets/compiled-templates.js  -c handlebars/runtime"
+  },
+  "dependencies": {
+    "@onest.network/correct-js": "file:.yalc/@onest.network/correct-js",
+    "@onest.network/simple-db": "file:.yalc/@onest.network/simple-db",
+    "fastify": "^3.6.0",
+    "handlebars": "^4.7.6"
   }
 }
