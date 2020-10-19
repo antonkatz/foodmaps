@@ -1,6 +1,8 @@
 {
   "name": "FoodMaps",
   "scripts": {
+    "dev": "nodemon -e js,ts,hbs --exec \"yarn run start\" --ignore 'compiled-templates.js'",
+    "start": "yarn run compile-templates; /usr/lib/jvm/java-11-graalvm/bin/node src/index.js",
     "compile-templates": "yarn handlebars -e hbs ./assets/templates/ -f ./assets/compiled-templates.js  -c handlebars/runtime"
   },
   "dependencies": {
