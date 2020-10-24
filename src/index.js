@@ -1,9 +1,8 @@
-require('../assets/compiled-templates')
-const Handlebars = require("handlebars/runtime")
 const _fastify = require('fastify')
 
-// noinspection JSConstantReassignment
-Handlebars.partials = Handlebars.templates
+const home = require("./home.imba")
+console.log(home)
+console.log(home.Component.toString())
 
 // Require the framework and instantiate it
 const fastify = _fastify({
@@ -12,7 +11,9 @@ const fastify = _fastify({
 
 // Declare a route
 fastify.get('/', function (request, reply) {
-    reply.send(Handlebars.templates.home({date: Date(), isNavOpen: true}))
+    reply
+        .header('Content-Type', 'text/html')
+        .send(home.Component.toString())
 })
 
 // Run the server!

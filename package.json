@@ -8,12 +8,11 @@
   "dependencies": {
     "@onest.network/correct-js": "file:.yalc/@onest.network/correct-js",
     "fastify": "^3.6.0",
-    "handlebars": "^4.7.6",
-    "long": "^4.0.0",
-    "pino-pretty": "^4.3.0"
+    "uWebSockets.js": "uNetworking/uWebSockets.js"
   },
   "devDependencies": {
     "imba": "^1.5.2",
+    "loader-utils": "^2.0.0",
     "webpack": "^5.2.0",
     "webpack-cli": "^4.1.0"
   }
