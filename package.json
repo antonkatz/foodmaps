@@ -1,18 +1,19 @@
 {
   "name": "foodmaps",
   "scripts": {
-    "dev": "nodemon -e js,ts,hbs --exec \"yarn run start\" --ignore 'compiled-templates.js'",
-    "start": "yarn run compile-templates; /usr/lib/jvm/java-11-graalvm/bin/node src/index.js",
+    "dev": "yarn nodemon -e js,ts,imba --exec \"yarn run start-compiled\" & yarn webpack --watch",
+    "start-compiled": "node dist/index.js",
     "compile-templates": "yarn handlebars -e hbs ./assets/templates/ -f ./assets/compiled-templates.js  -c handlebars/runtime"
   },
   "dependencies": {
     "@onest.network/correct-js": "file:.yalc/@onest.network/correct-js",
     "fastify": "^3.6.0",
-    "uWebSockets.js": "uNetworking/uWebSockets.js"
+    "uWebSockets.js": "uNetworking/uWebSockets.js#18.9.0"
   },
   "devDependencies": {
     "imba": "^1.5.2",
     "loader-utils": "^2.0.0",
+    "nodemon": "^2.0.6",
     "webpack": "^5.2.0",
     "webpack-cli": "^4.1.0"
   }

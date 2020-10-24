@@ -8,8 +8,7 @@ const path = require('path');
 module.exports = {
   target: "node",
   externals: {
-    "fastify":"commonjs2 fastify",
-    "handlebars":"commonjs2 handlebars"
+    "uWebSockets.js":"commonjs2 uWebSockets.js",
   },
   module: {
     rules: [
