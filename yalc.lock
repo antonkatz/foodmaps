@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "@onest.network/correct-js": {
-      "signature": "e4df74fd5a458788ea6c50e4a56132ea",
+      "signature": "ac540ef25aa8ba05da5c10a2954385d5",
       "file": true,
       "replaced": "file:../utils/correct-js"
     },

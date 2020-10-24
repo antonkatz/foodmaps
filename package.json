@@ -1,5 +1,5 @@
 {
-  "name": "FoodMaps",
+  "name": "foodmaps",
   "scripts": {
     "dev": "nodemon -e js,ts,hbs --exec \"yarn run start\" --ignore 'compiled-templates.js'",
     "start": "yarn run compile-templates; /usr/lib/jvm/java-11-graalvm/bin/node src/index.js",
@@ -7,8 +7,14 @@
   },
   "dependencies": {
     "@onest.network/correct-js": "file:.yalc/@onest.network/correct-js",
-    "@onest.network/simple-db": "file:.yalc/@onest.network/simple-db",
     "fastify": "^3.6.0",
-    "handlebars": "^4.7.6"
+    "handlebars": "^4.7.6",
+    "long": "^4.0.0",
+    "pino-pretty": "^4.3.0"
+  },
+  "devDependencies": {
+    "imba": "^1.5.2",
+    "webpack": "^5.2.0",
+    "webpack-cli": "^4.1.0"
   }
 }

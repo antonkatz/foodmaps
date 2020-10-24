@@ -1,11 +1,12 @@
 require('../assets/compiled-templates')
 const Handlebars = require("handlebars/runtime")
+const _fastify = require('fastify')
 
 // noinspection JSConstantReassignment
 Handlebars.partials = Handlebars.templates
 
 // Require the framework and instantiate it
-const fastify = require('fastify')({
+const fastify = _fastify({
     logger: true
 })
 
