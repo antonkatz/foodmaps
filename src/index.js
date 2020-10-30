@@ -1,12 +1,23 @@
-const HomePage = require("./home.imba").Component
+const { default: buildPageHtml } = require("./buildPageHtml");
+
+const sendfile = require('./sendfile')
 
 require("uWebSockets.js").App()
+    .get('/', (res, req) => {
+      const html = buildPageHtml("FoodMaps", 'home', {datetime: new Date().toISOString()}) 
+      res.end(html);
+    })
+    .get('/static/styles/*', (res, req) => {
+      const file = __dirname + '/static/styles/905c8fcd2cb14a525b631930abcaba89.css'
+      console.log('serving', file)
+      sendfile(res, req, file)
+    })
     .get('/*', (res, req) => {
-      res.writeStatus('200 OK')
-          .end(HomePage(new Date().toISOString()).toString());
-
-    }).listen(3000, (listenSocket) => {
+      console.log('Not found')
+      res.writeStatus('404').end()
+    })
+    .listen(8080, (listenSocket) => {
   if (listenSocket) {
-    console.log('Listening to port 3000');
+    console.log('Listening to port 8080');
   }
 });

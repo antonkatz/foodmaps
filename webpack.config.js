@@ -1,15 +1,13 @@
 const path = require('path');
-
-//
-// "long",
-//     "pino-pretty",
-//     "fast-json-stringify",
+const WebpackWatchedGlobEntries = require('webpack-watched-glob-entries-plugin');
 
 module.exports = {
   target: "node",
-  externals: {
+  externals: [{
     "uWebSockets.js":"commonjs2 uWebSockets.js",
-  },
+  }
+],
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {
@@ -18,24 +16,39 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader'
-      }, {
-        test: /\.css$/,
-        loader: 'css-loader',
-        options: {
-          modules: {
-            mode: 'local',
-            localIdentName: '[path][name]__[local]--[hash:base64:5]',
-            context: path.resolve(__dirname, 'src'),
-            hashPrefix: 'my-custom-hash',
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'static/styles/',
+              publicPath: 'static/styles/',
+            }
           },
-        },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                mode: 'local',
+              },
+            },
+          }
+        ]
       }
     ]
   },
+  plugins: [
+    new WebpackWatchedGlobEntries(),
+  ],
+
   resolve: {
     extensions: [".imba", ".js", ".json", ".css"]
   },
-  entry: "./src/index.js",
-  output: { path: __dirname + '/dist', filename: "index.js" }
+  entry: WebpackWatchedGlobEntries.getEntries(
+    [ 
+      // Your path(s) 
+      path.resolve(__dirname, 'src/index.js'),
+      // path.resolve(__dirname, 'src/pages*/*.imba')
+    ]
+  ),
+  output: { path: __dirname + '/dist', filename: "[name].js" }
 }
