@@ -14,7 +14,8 @@ const mapScript = `
         `
 
 export default function (title, pagePath, context = {}) {
-	const pageComponent = require('./pages/' + pagePath + '.imba').default
+	const pageComponent = require('./pages/' + pagePath + '/index.imba').default
+	let style = require('./pages/' + pagePath + '/style.css').default
 	const bodyHtml = pageComponent(context)
 
 	return `
@@ -24,8 +25,9 @@ export default function (title, pagePath, context = {}) {
 			<title>${title}</title>
 			<link rel="stylesheet" href="${normalizeCss}" />
 			<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-			integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-			crossorigin=""/>
+				integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+				crossorigin=""/>
+			<link rel="stylesheet" href="${style}" />
 		</head>
 		<body>
 			${bodyHtml}
