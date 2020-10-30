@@ -1,16 +1,19 @@
 const { default: buildPageHtml } = require("./buildPageHtml");
 
-const sendfile = require('./sendfile')
+const sendfile = require('./server-utils/sendfile')
 
 require("uWebSockets.js").App()
     .get('/', (res, req) => {
       const html = buildPageHtml("FoodMaps", 'home', {datetime: new Date().toISOString()}) 
       res.end(html);
     })
-    .get('/static/styles/*', (res, req) => {
-      const file = __dirname + '/static/styles/905c8fcd2cb14a525b631930abcaba89.css'
-      console.log('serving', file)
-      sendfile(res, req, file)
+    .get('/static/styles/:path', (res, req) => {
+      try {
+        const file = __dirname + '/static/styles/' + req.getParameter(0)
+        sendfile(res, req, file)
+      } catch {
+        res.writeStatus('404').end()
+      }
     })
     .get('/*', (res, req) => {
       console.log('Not found')

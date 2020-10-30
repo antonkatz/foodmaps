@@ -24,14 +24,15 @@ module.exports = {
               publicPath: 'static/styles/',
             }
           },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                mode: 'local',
-              },
-            },
-          }
+          // {
+          //   loader: 'css-loader',
+          //   options: {
+          //     modules: false 
+          //     // {
+          //     //   mode: 'local',
+          //     // },
+          //   },
+          // }
         ]
       }
     ]
