@@ -2,6 +2,8 @@ const { default: buildPageHtml } = require("./buildPageHtml");
 
 const sendfile = require('./server-utils/sendfile')
 
+const port = process.env.PORT || 80
+
 require("uWebSockets.js").App()
     .get('/', (res, req) => {
       const html = buildPageHtml("FoodMaps", 'home', {datetime: new Date().toISOString()}) 
@@ -19,8 +21,8 @@ require("uWebSockets.js").App()
       console.log('Not found')
       res.writeStatus('404').end()
     })
-    .listen(8080, (listenSocket) => {
+    .listen(port, (listenSocket) => {
   if (listenSocket) {
-    console.log('Listening to port 8080');
+    console.log('Listening to port ' + port);
   }
 });

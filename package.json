@@ -1,7 +1,7 @@
 {
   "name": "foodmaps",
   "scripts": {
-    "dev": "yarn nodemon -e js,ts,imba --exec \"yarn run start-compiled\" & yarn webpack --watch",
+    "dev": "PORT=8080 yarn nodemon -e js,ts,imba --exec \"yarn run start-compiled\" & yarn webpack --watch",
     "start-compiled": "node dist/index.js",
     "compile-templates": "yarn handlebars -e hbs ./assets/templates/ -f ./assets/compiled-templates.js  -c handlebars/runtime"
   },
