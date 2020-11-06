@@ -2,11 +2,10 @@
   "name": "foodmaps",
   "scripts": {
     "dev": "PORT=8080 yarn nodemon -e js,ts,imba --exec \"yarn run start-compiled\" & yarn webpack --watch",
-    "start-compiled": "node dist/index.js",
+    "start-compiled": "node dist/server/index.js",
     "compile-templates": "yarn handlebars -e hbs ./assets/templates/ -f ./assets/compiled-templates.js  -c handlebars/runtime"
   },
   "dependencies": {
-    "@onest.network/correct-js": "file:.yalc/@onest.network/correct-js",
     "normalize.css": "^8.0.1",
     "uWebSockets.js": "uNetworking/uWebSockets.js#18.9.0"
   },

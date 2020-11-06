@@ -4,4 +4,4 @@ export default def Page ctx
                 integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
                 crossorigin="">
 
-        <div id="mapid" css:height='100%'>
+        <div id="map-container" css:height='100%'>

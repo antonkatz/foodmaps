@@ -1,8 +1,7 @@
 const path = require('path');
 const WebpackWatchedGlobEntries = require('webpack-watched-glob-entries-plugin');
 
-module.exports = {
-  target: "node",
+const baseConfig = {
   externals: [{
     "uWebSockets.js":"commonjs2 uWebSockets.js",
   }
@@ -24,15 +23,6 @@ module.exports = {
               publicPath: 'static/styles/',
             }
           },
-          // {
-          //   loader: 'css-loader',
-          //   options: {
-          //     modules: false 
-          //     // {
-          //     //   mode: 'local',
-          //     // },
-          //   },
-          // }
         ]
       }
     ]
@@ -44,12 +34,31 @@ module.exports = {
   resolve: {
     extensions: [".imba", ".js", ".json", ".css"]
   },
-  entry: WebpackWatchedGlobEntries.getEntries(
-    [ 
-      // Your path(s) 
-      path.resolve(__dirname, 'src/index.js'),
-      // path.resolve(__dirname, 'src/pages*/*.imba')
-    ]
-  ),
-  output: { path: __dirname + '/dist', filename: "[name].js" }
 }
+
+module.exports = [{
+  ...baseConfig,
+  target: "node",
+  entry: WebpackWatchedGlobEntries.getEntries(
+      [
+        // Your path(s)
+        path.resolve(__dirname, 'src/index.js'),
+        // path.resolve(__dirname, 'src/pages*/*.imba')
+      ]
+  ),
+  output: { path: __dirname + '/dist/server', filename: "[name].js" }
+},
+// client
+  {
+    ...baseConfig,
+    target: "web",
+
+    entry: WebpackWatchedGlobEntries.getEntries(
+        [
+          // Your path(s)
+          path.resolve(__dirname, 'src/pages/**/*.client.js')
+        ]
+    ),
+
+    output: { path: __dirname + '/dist/client', filename: "[name].js" }
+  }]

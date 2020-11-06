@@ -1,23 +1,11 @@
 const normalizeCss = require("normalize.css").default
 const path = require('path')
-	
-const accessToken = "pk.eyJ1IjoiYW5raG1vciIsImEiOiJjaWZ4MTk4b2Eza2tqdTZrc2s3Y2x3Y3FuIn0.3emrqX3oCouiiHJwUXdFdg"
-
-const mapScript = `
-            var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-            L.tileLayer.wms('https://api.mapbox.com/styles/v1/ankhmor/{id}/tiles/{tileSize}/{z}/{x}/{y}?access_token={accessToken}', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            maxZoom: 18,
-            id: 'ckgxxnwae12xc19plvvms6lys',
-            tileSize: 512,
-            zoomOffset: -1,
-            accessToken: "${accessToken}"
-            }).addTo(mymap);
-        `
+const fs = require('fs')
 
 export default function (title, pagePath, context = {}) {
 	const pageComponent = require('./pages/' + pagePath + '/index.imba').default
 	let style = require('./pages/' + pagePath + '/style.css').default
+
 	const bodyHtml = pageComponent(context)
 
 	return `
@@ -33,7 +21,7 @@ export default function (title, pagePath, context = {}) {
 		</head>
 		<body>
 			${bodyHtml}
-			<script>${mapScript}</script>
+			<script src="/static/client/${pagePath}"></script>
 		</body>
 		`
 }
