@@ -6,6 +6,7 @@
     "compile-templates": "yarn handlebars -e hbs ./assets/templates/ -f ./assets/compiled-templates.js  -c handlebars/runtime"
   },
   "dependencies": {
+    "cheap-ruler": "^3.0.1",
     "normalize.css": "^8.0.1",
     "uWebSockets.js": "uNetworking/uWebSockets.js#18.9.0"
   },
