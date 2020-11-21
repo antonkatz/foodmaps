@@ -1,3 +1,5 @@
+import Sidebar from '../../ui/components/sidebar'
+
 export default def Page ctx
     <div id='page-content'>
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
@@ -6,4 +8,4 @@ export default def Page ctx
 
         <div id="map-container" css:height='100%'>
 
-        <div>
+        <Sidebar ctx=ctx>

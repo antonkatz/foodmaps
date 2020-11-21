@@ -6,7 +6,7 @@ export default function (title, pagePath, context = {}) {
 	const pageComponent = require('./pages/' + pagePath + '/index.imba').default
 	let style = require('./pages/' + pagePath + '/style.css').default
 
-	const bodyHtml = pageComponent(context)
+	const bodyHtml = pageComponent(context).toString()
 
 	return `
 	<!DOCTYPE html>
