@@ -1,10 +1,10 @@
-tag AddWhatsHere < form
-    prop ctx
+tag AddWhatsHere
+	prop ctx
 
-    def render
-        <self>
-            <input type='checkbox' name='ck_name'>
-            <input type='submit'>
+	def render
+		<self>
+			<input type='checkbox' name='ck_name'>
+			<input type='submit'>
 
 export default AddWhatsHere
 

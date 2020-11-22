@@ -1,13 +1,15 @@
-const {default: buildPageHtml} = require("./buildPageHtml");
-
+const {App} = require("@sifrr/server")
 const sendfile = require('./server-utils/sendfile')
+
+const {default: buildPageHtml} = require("./buildPageHtml");
 
 const port = parseInt(process.env.PORT, 10) || 80
 
 function main() {
   console.log(`Attempting to start [${port}]`)
 
-  require("uWebSockets.js").App()
+  const app = new App()
+      app
       .get('/', (res, req) => {
         const html = buildPageHtml("FoodMaps", 'home', {datetime: new Date().toISOString()})
         res.end(html);
