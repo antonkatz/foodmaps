@@ -1587,9 +1587,10 @@ ignore-by-default@^1.0.1:
   resolved "https://registry.yarnpkg.com/ignore-by-default/-/ignore-by-default-1.0.1.tgz#48ca6d72f6c6a3af00a9ad4ae6876be3889e2b09"
   integrity sha1-SMptcvbGo68Aqa1K5odr44ieKwk=
 
-"imba@https://github.com/imba/imba":
+imba@^2.0.0-alpha.100:
   version "2.0.0-alpha.100"
-  resolved "https://github.com/imba/imba#538e8fd433b68f3c7abb7006bf5b2174be303780"
+  resolved "https://registry.yarnpkg.com/imba/-/imba-2.0.0-alpha.100.tgz#7e4cf0ea934bd8a7d0acc69004546f94757b25a4"
+  integrity sha512-xl0OrDUHLV22/7OFDx68IitCP5C4rLcgMgxDW/+aI8NZEiNoCTcV3yiMG9+/eEjx6p7eohTafoC5n5BoUPRpSg==
 
 import-lazy@^2.1.0:
   version "2.1.0"

@@ -28,12 +28,18 @@ function setRadiusHandler(e) {
   const distance = map.distance(newLocation, radiusBoundary);
   if (distance > minRadius) {
     newLocationMarker.setRadius(distance)
+    return {radius: distance}
   }
+  return {}
 }
 
+let radius;
 map.on('click', function(e){
   if (selectStage === 1) {
     selectStage = 0
+
+    debugger
+    if (newLocation) window.location = new URL(window.location.origin + `/plot/create?lat=${newLocation.lat}&radius=${radius}`)
 
     map.off('mousemove', setRadiusHandler)
   } else {
@@ -45,11 +51,13 @@ map.on('click', function(e){
 
     newLocation = e.latlng
     // ruler = new CheapRuler(newLocation.lat, 'meters');
-    const radius = map.getZoomScale(18, map.getZoom()) * 10
-    minRadius = radius
+    minRadius = map.getZoomScale(18, map.getZoom()) * 10
+    radius = minRadius
 
-    newLocationMarker = new L.circle(newLocation, {radius}).addTo(map);
+    newLocationMarker = new L.circle(newLocation, {radius: minRadius}).addTo(map);
 
-    map.on('mousemove', setRadiusHandler)
+    map.on('mousemove', e => {
+      radius = setRadiusHandler(e).radius
+    })
   }
 });

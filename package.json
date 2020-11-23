@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@sifrr/server": "^0.0.8",
-    "imba": "file:.yalc/imba",
+    "imba": "^2.0.0-alpha.100",
     "normalize.css": "^8.0.1",
     "uWebSockets.js": "uNetworking/uWebSockets.js#18.9.0"
   },

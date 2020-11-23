@@ -1,4 +1,4 @@
-tag Test
+tag Test < div
 	def render
 		<self>
 			<input name="my-name" type="password" random-prop="should not be her" data-test="data">
@@ -8,4 +8,4 @@ tag Test
 				 >
 
 const e = <Test>
-console.log(e.toString())
+console.log(String(e))
