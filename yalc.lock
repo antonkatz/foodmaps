@@ -9,6 +9,11 @@
     "@onest.network/simple-db": {
       "signature": "5ddc4fd95f3113ebf5a54bb1ee7b6a90",
       "file": true
+    },
+    "imba": {
+      "signature": "62e83782c7c1df281ac812b4f641ebd0",
+      "file": true,
+      "replaced": "https://github.com/imba/imba"
     }
   }
 }

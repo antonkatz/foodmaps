@@ -2,11 +2,22 @@ const normalizeCss = require("normalize.css").default
 const path = require('path')
 const fs = require('fs')
 
-export default function (title, pagePath, context = {}) {
-	const pageComponent = require('./pages/' + pagePath + '/index.imba').default
-	let style = require('./pages/' + pagePath + '/style.css').default
+const pages = {}
+for (const pagePath of ['home']) {
+	pages[pagePath] = {
+		pageComponent: require('./pages/' + pagePath + '/index.imba').default,
+		style: require('./pages/' + pagePath + '/style.css').default
+	}
+	console.log(pages)
+}
 
-	const bodyHtml = pageComponent(context)
+export default function (title, pagePath, context = {}) {
+	// const pageComponent = require('./pages/' + pagePath + '/index.imba')
+	const {pageComponent, style} = pages[pagePath]
+
+	console.log(JSON.stringify(pageComponent))
+	const body = pageComponent(context)
+	const bodyHtml = body.toString()
 
 	return `
 	<!DOCTYPE html>
