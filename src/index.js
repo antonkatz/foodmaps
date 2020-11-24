@@ -1,4 +1,5 @@
 import createPlots from "./routes/plot/create"
+import readPlots   from "./routes/plot/read"
 
 const {App} = require("@sifrr/server")
 const sendfile = require('./server-utils/sendfile')
@@ -45,6 +46,7 @@ function main() {
         })
 
     createPlots(app)
+    readPlots(app)
 }
 
 main()

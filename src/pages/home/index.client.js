@@ -1,4 +1,5 @@
 // const CheapRuler = require('cheap-ruler').default
+require("../../ui/map/uGeoJson")
 
 const accessToken = "pk.eyJ1IjoiYW5raG1vciIsImEiOiJjaWZ4MTk4b2Eza2tqdTZrc2s3Y2x3Y3FuIn0.3emrqX3oCouiiHJwUXdFdg"
 
