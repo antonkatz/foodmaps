@@ -7,7 +7,7 @@
       "replaced": "file:../utils/correct-js"
     },
     "@onest.network/simple-db": {
-      "signature": "5ddc4fd95f3113ebf5a54bb1ee7b6a90",
+      "signature": "811e5de1400f012dd9cab1b044ccc300",
       "file": true
     },
     "imba": {

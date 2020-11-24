@@ -39,6 +39,10 @@ const baseConfig = {
 module.exports = [{
   ...baseConfig,
   target: "node",
+  externals: {
+    "leveldown": "commonjs2 leveldown",
+    "@sifrr/server": "commonjs2 @sifrr/server"
+  },
   entry: WebpackWatchedGlobEntries.getEntries(
       [
         // Your path(s)

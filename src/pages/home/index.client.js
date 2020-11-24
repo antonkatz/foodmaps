@@ -30,7 +30,7 @@ function setRadiusHandler(e) {
     newLocationMarker.setRadius(distance)
     return {radius: distance}
   }
-  return {}
+  return {radius: minRadius}
 }
 
 let radius;
@@ -39,7 +39,8 @@ map.on('click', function(e){
     selectStage = 0
 
     debugger
-    if (newLocation) window.location = new URL(window.location.origin + `/plot/create?lat=${newLocation.lat}&radius=${radius}`)
+    if (newLocation) window.location =
+        new URL(window.location.origin + `/plot/create?lat=${newLocation.lat}&lng=${newLocation.lng}&radius=${radius}`)
 
     map.off('mousemove', setRadiusHandler)
   } else {
