@@ -6,7 +6,6 @@ require("../../ui/map/uGeoJson")
 const accessToken = "pk.eyJ1IjoiYW5raG1vciIsImEiOiJjaWZ4MTk4b2Eza2tqdTZrc2s3Y2x3Y3FuIn0.3emrqX3oCouiiHJwUXdFdg"
 
 const map = L.map('map-container')
-map.locate({setView: true, enableHighAccuracy: true, maxZoom: 17})
 
 L.tileLayer.wms('https://api.mapbox.com/styles/v1/ankhmor/{id}/tiles/{tileSize}/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -18,13 +17,12 @@ L.tileLayer.wms('https://api.mapbox.com/styles/v1/ankhmor/{id}/tiles/{tileSize}/
 }).addTo(map)
 
 
-// const l = L.uGeoJSONLayer({
-//     endpoint: "/plot/map",
-//     debug: true
-// }).addTo(map)
-// console.log(l)
-
-const ln = L.geoJSON(getInBounds(), {
+const l = L.uGeoJSONLayer({
+    endpoint: "/plot/map",
+    debug: true,
+    pointToLayer: function (geoJsonPoint, latlng) {
+        return new L.circle(latlng, {radius: 50})
+    },
     style: function (feature) {
         return {
             fillColor: "#ff7800",
@@ -36,11 +34,12 @@ const ln = L.geoJSON(getInBounds(), {
         };
     },
 
-    pointToLayer: function (geoJsonPoint, latlng) {
-        debugger
-        return new L.circle(latlng, {radius: 50})
-    }
-}).addTo(map)
+})
+    .addTo(map)
+console.log(l)
+
+map.locate({setView: true, enableHighAccuracy: true, maxZoom: 17})
+console.log(map.locate)
 
 let newLocationMarker
 let newLocation
@@ -69,7 +68,6 @@ map.on('click', function (e) {
     if (selectStage === 1) {
         selectStage = 0
 
-        debugger
         if (newLocation) window.location =
             new URL(window.location.origin + `/plot/create?lat=${newLocation.lat}&lng=${newLocation.lng}&radius=${radius}`)
 
