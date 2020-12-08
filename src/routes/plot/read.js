@@ -1,15 +1,22 @@
 import getInBounds from "../../logic/plot/getInBounds"
 
 export default function (app) {
-    console.log(app)
-    return app.get('/plot/map', readInBounds)
+    return app
+        .post('/plot/map', readInBounds)
+        .get('/plot/map', readInBounds)
 }
 
-function readInBounds(res, req) {
+async function readInBounds(res, req) {
+    res.writeHeader("content-type", "application/json")
+
     /* Can't return or yield from here without responding or attaching an abort handler */
     res.onAborted(() => {
         res.aborted = true;
     });
+
+    let postData
+    if (res.formData) postData = await res.formData()
+    console.log(postData)
 
     const data = getInBounds()
 
