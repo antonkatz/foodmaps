@@ -9,6 +9,4 @@ export default function ({lat, lng, radius}) {
     table.overwrite({
         id, lat, lng, radius
     })
-
-    table.getAll().then(console.log)
 }

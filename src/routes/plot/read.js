@@ -18,7 +18,7 @@ async function readInBounds(res, req) {
     if (res.formData) postData = await res.formData()
     console.log(postData)
 
-    const data = getInBounds()
+    const data = await getInBounds()
 
     /* If we were aborted, you cannot respond */
     if (!res.aborted) {

@@ -64,5 +64,15 @@ module.exports = [{
         ]
     ),
 
+    resolve: {
+      fallback: {
+        "util": false,
+        "os": false,
+        "path": false,
+        "leveldown": false,
+        "assert": false
+      }
+    },
+
     output: { path: __dirname + '/dist/client', filename: "[name].js" }
   }]
