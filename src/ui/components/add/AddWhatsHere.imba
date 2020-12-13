@@ -4,8 +4,8 @@ tag AddWhatsHere
 	def render
 		<self>
 			<form method="POST" accept-charset="utf-8">
-				<input type='checkbox' name='ck_name'>
-				<input type='submit'>
+				<textarea name='story' rows=4 />
+				<input type='submit' value='Pin to Map'>
 
 export default AddWhatsHere
 

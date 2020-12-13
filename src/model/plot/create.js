@@ -6,7 +6,8 @@ export default function ({lat, lng, radius}) {
 
     const id = uuid()
 
-    table.overwrite({
+    const plot = {
         id, lat, lng, radius
-    })
+    }
+    return table.overwrite(plot).then(() => plot)
 }
