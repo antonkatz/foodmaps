@@ -1,3 +1,5 @@
+import {defaultMarkerStyle} from "./marker-styles"
+
 export default function (map) {
 
     let newLocationMarker
@@ -6,7 +8,7 @@ export default function (map) {
     let minRadius = 0
     let selectStage = 0
 
-    function setRadiusHandler(e) {
+    function calcRadius(e) {
         const radiusBoundary = e.latlng
         // const distance = ruler.distance([newLocation.lat, newLocation.lng], [radiusBoundary.lat, radiusBoundary.lng]);
         const distance = map.distance(newLocation, radiusBoundary)
@@ -22,10 +24,18 @@ export default function (map) {
         if (selectStage === 1) {
             selectStage = 0
 
-            if (newLocation) window.location =
-                new URL(window.location.origin + `/plot/create?lat=${newLocation.lat}&lng=${newLocation.lng}&radius=${radius}`)
+            if (newLocation) {
+                // setting style and preventing it from being removed
+                newLocationMarker.setStyle(defaultMarkerStyle())
+                newLocationMarker = undefined
 
-            map.off('mousemove', setRadiusHandler)
+                up.visit(
+                    `/plot/create?lat=${newLocation.lat}&lng=${newLocation.lng}&radius=${radius}`,
+                    {target: "#sidebar"}
+                )
+            }
+
+            map.off('mousemove')
         } else {
             selectStage += 1
 
@@ -41,7 +51,7 @@ export default function (map) {
             newLocationMarker = new L.circle(newLocation, {radius: minRadius}).addTo(map)
 
             map.on('mousemove', e => {
-                radius = setRadiusHandler(e).radius
+                radius = calcRadius(e).radius
             })
         }
     })

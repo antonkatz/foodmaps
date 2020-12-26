@@ -2,7 +2,8 @@ import buildPageHtml from "../../buildPageHtml"
 import createPlot    from "../../actions/createPlot"
 
 export default function (app) {
-    return app.get('/plot/create', handleCreate)
+    return app
+        //.get('/plot/create', handleCreate)
         .post('/plot/create', handleCreate)
 }
 

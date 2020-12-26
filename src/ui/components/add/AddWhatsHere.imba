@@ -5,7 +5,7 @@ tag AddWhatsHere
 		<self>
 			<form method="POST" accept-charset="utf-8">
 				<textarea name='story' rows=4 />
-				<input type='submit' value='Pin to Map'>
+				<input type='submit' value='Add story'>
 
 export default AddWhatsHere
 

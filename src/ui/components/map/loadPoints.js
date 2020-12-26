@@ -1,26 +1,15 @@
-import attachSelectHandler from "./attachSelectHandler"
+import PlotMarker           from "./PlotMarker"
+import {defaultMarkerStyle} from "./marker-styles"
 
 export default function (map) {
     L.uGeoJSONLayer({
         endpoint: "/plot/map",
         debug: true,
         pointToLayer: function (geoJsonPoint, latlng) {
-            const m = new L.circle(latlng, {
-                radius: geoJsonPoint?.properties?.radius || 10,
-                bubblingMouseEvents: false
-            })
-            attachSelectHandler(m)
-            return m
+            return PlotMarker({latlng, radius: geoJsonPoint?.properties?.radius})
         },
         style: function (feature) {
-            return {
-                fillColor: "#ff7800",
-                color: '#000000',
-                weight: 1,
-                opacity: 1,
-                fillOpacity: 0.8,
-                stokeWeight: 5
-            }
+            return defaultMarkerStyle()
         },
         transformData(data) {
             data = data || []
