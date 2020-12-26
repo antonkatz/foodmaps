@@ -4,5 +4,10 @@ export default function (marker) {
 
 function handler(e) {
     console.log(e)
-    debugger
+    const id = e.target?.feature?.properties?.id
+
+    if (id) {
+        up.history.push("/plot/" + id)
+    }
+    return true
 }

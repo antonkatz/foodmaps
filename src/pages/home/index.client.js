@@ -9,4 +9,4 @@ require("../../ui/map/uGeoJson")
 const {map, baseLayer} = initializeMap()
 
 loadPoints(map)
-attachCreateHandler({map, baseLayer})
+attachCreateHandler(map)

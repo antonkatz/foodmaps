@@ -5,7 +5,10 @@ export default function (map) {
         endpoint: "/plot/map",
         debug: true,
         pointToLayer: function (geoJsonPoint, latlng) {
-            const m = new L.circle(latlng, {radius: geoJsonPoint?.properties?.radius || 10})
+            const m = new L.circle(latlng, {
+                radius: geoJsonPoint?.properties?.radius || 10,
+                bubblingMouseEvents: false
+            })
             attachSelectHandler(m)
             return m
         },
@@ -25,7 +28,9 @@ export default function (map) {
                 return {
                     "type": "Feature",
                     "properties": {
-                        radius: plot.radius,
+                        ...plot,
+                        // id: plot.id,
+                        // radius: plot.radius,
                         //                 "name": "Coors Field",
                         //                 "amenity": "Baseball Stadium",
                         //                 "popupContent": "This is where the Rockies play!"
