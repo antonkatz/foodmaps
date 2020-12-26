@@ -7,6 +7,9 @@ export default def Page ctx
 			# crossorigin="anonymous"
 			>
 
+		<script>
+			const selectedPlotId = ctx.plotId
+
 		<div id="map-container" css:height='100%'>
 
 		<Sidebar ctx=ctx>

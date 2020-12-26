@@ -19,7 +19,7 @@ async function showPlot(res, req) {
 
     const stories = await getStoriesForPlot(id)
 
-    const html = buildPageHtml("FoodMaps", 'home', {stories})
+    const html = buildPageHtml("FoodMaps", 'home', {stories, plotId: id})
 
     /* If we were aborted, you cannot respond */
     if (!res.aborted) {
