@@ -1,9 +1,13 @@
+import attachSelectHandler from "./attachSelectHandler"
+
 export default function (map) {
     L.uGeoJSONLayer({
         endpoint: "/plot/map",
         debug: true,
         pointToLayer: function (geoJsonPoint, latlng) {
-            return new L.circle(latlng, {radius: geoJsonPoint?.properties?.radius || 10})
+            const m = new L.circle(latlng, {radius: geoJsonPoint?.properties?.radius || 10})
+            attachSelectHandler(m)
+            return m
         },
         style: function (feature) {
             return {

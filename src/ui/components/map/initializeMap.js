@@ -5,7 +5,7 @@ export default function() {
 
     map.locate({setView: true, enableHighAccuracy: true, maxZoom: 17})
 
-    L.tileLayer.wms('https://api.mapbox.com/styles/v1/ankhmor/{id}/tiles/{tileSize}/{z}/{x}/{y}?access_token={accessToken}', {
+    const baseLayer = L.tileLayer.wms('https://api.mapbox.com/styles/v1/ankhmor/{id}/tiles/{tileSize}/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,
         id: 'ckgxxnwae12xc19plvvms6lys',
@@ -14,5 +14,5 @@ export default function() {
         accessToken
     }).addTo(map)
 
-    return map
+    return {map, baseLayer}
 }
