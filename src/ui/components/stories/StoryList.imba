@@ -5,7 +5,9 @@ tag StoryList
 
 	def render
 		<self>
-			<ul> for story in stories
-				<Story story=story>
+			<ul>
+				for story in stories
+					<li>
+						<Story story=story>
 
 export default StoryList

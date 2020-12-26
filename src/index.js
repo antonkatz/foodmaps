@@ -1,4 +1,5 @@
 import createPlots from "./routes/plot/create"
+import createStory from "./routes/story/create"
 import readPlots   from "./routes/plot/read"
 
 const {App} = require("@sifrr/server")
@@ -46,6 +47,8 @@ function main() {
         })
 
     createPlots(app)
+    createStory(app)
+
     readPlots(app)
 }
 

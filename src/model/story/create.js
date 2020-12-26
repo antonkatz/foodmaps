@@ -4,7 +4,7 @@ import {v4 as uuid}  from "uuid"
 export default function ({plotId, story}) {
     const id = uuid()
 
-    table.overwrite({
+    return table.update(id, () => ({
         id, story, plotId
-    })
+    }))
 }
