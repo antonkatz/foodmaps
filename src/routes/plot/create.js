@@ -27,6 +27,7 @@ async function handleCreate(res, req) {
         const location = '/plot/' + plot.id
         res
             .writeStatus('303')
+            .writeHeader('X-Up-Location', location)
             .writeHeader('Location', location)
             .end();
     }
