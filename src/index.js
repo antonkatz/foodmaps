@@ -1,11 +1,10 @@
-import createPlots from "./routes/plot/create"
-import createStory from "./routes/story/create"
-import readPlots   from "./routes/plot/read"
+import createPlots   from "./routes/plot/create"
+import createStory   from "./routes/story/create"
+import readPlots     from "./routes/plot/read"
+import {homeHandler} from "./routes/common-handlers"
 
 const {App} = require("@sifrr/server")
 const sendfile = require('./server-utils/sendfile')
-
-const {default: buildPageHtml} = require("./buildPageHtml")
 
 const port = parseInt(process.env.PORT, 10) || 80
 
@@ -14,10 +13,7 @@ function main() {
 
     const app = new App()
     app
-        .get('/', (res, req) => {
-            const html = buildPageHtml("FoodMaps", 'home', {datetime: new Date().toISOString()})
-            res.end(html)
-        })
+        .get('/', homeHandler)
         .get('/static/styles/:path', (res, req) => {
             try {
                 const file = __dirname + '/static/styles/' + req.getParameter(0)
@@ -34,7 +30,7 @@ function main() {
                 res.writeStatus('404').end()
             }
         })
-        .get('/*', (res, req) => {
+        .get('/*', (res) => {
             console.log('Not found')
             res.writeStatus('404').end()
         })

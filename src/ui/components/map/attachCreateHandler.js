@@ -30,7 +30,7 @@ export default function (map) {
                 newLocationMarker = undefined
 
                 up.visit(
-                    `/plot/create?lat=${newLocation.lat}&lng=${newLocation.lng}&radius=${radius}`,
+                    `/plot?state=creating&lat=${newLocation.lat}&lng=${newLocation.lng}&radius=${radius}`,
                     {target: "#sidebar"}
                 )
             }

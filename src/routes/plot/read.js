@@ -1,12 +1,14 @@
-import getInBounds         from "../../model/plot/getInBounds"
 import {getStoriesForPlot} from '../../model/story/getStories'
 import buildPageHtml       from "../../buildPageHtml"
+import {readInBounds}      from "./readInBounds"
+import {homeHandler}       from "../common-handlers"
 
 export default function (app) {
     return app
         .post('/plot/map', readInBounds)
         .get('/plot/map', readInBounds)
         .get('/plot/:id', showPlot)
+        .get('/plot', homeHandler)
 }
 
 async function showPlot(res, req) {
@@ -27,22 +29,3 @@ async function showPlot(res, req) {
     }
 }
 
-async function readInBounds(res, req) {
-    res.writeHeader("content-type", "application/json")
-
-    /* Can't return or yield from here without responding or attaching an abort handler */
-    res.onAborted(() => {
-        res.aborted = true;
-    });
-
-    let postData
-    if (res.formData) postData = await res.formData()
-    console.log(postData)
-
-    const data = await getInBounds()
-
-    /* If we were aborted, you cannot respond */
-    if (!res.aborted) {
-        res.end(JSON.stringify(data));
-    }
-}

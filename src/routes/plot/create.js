@@ -1,14 +1,12 @@
-import buildPageHtml from "../../buildPageHtml"
 import createPlot    from "../../actions/createPlot"
 
 export default function (app) {
     return app
-        //.get('/plot/create', handleCreate)
-        .post('/plot/create', handleCreate)
+        // .get('/plot', handleCreate)
+        .post('/plot', handleCreate)
 }
 
 async function handleCreate(res, req) {
-    const host = req.getHeader('host')
     /* Can't return or yield from here without responding or attaching an abort handler */
     res.onAborted(() => {
         res.aborted = true;
