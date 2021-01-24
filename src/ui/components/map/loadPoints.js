@@ -5,6 +5,13 @@ export default function (map) {
     L.uGeoJSONLayer({
         endpoint: "/plot/map",
         debug: true,
+        parameters: () => {
+            const bounds = map.getBounds()
+            const diagonalLength = map.distance(bounds.getSouthEast(), bounds.getNorthWest())
+            return {
+                diagonalLength
+            }
+        },
         pointToLayer: function (geoJsonPoint, latlng) {
             return PlotMarker({latlng, radius: geoJsonPoint?.properties?.radius})
         },

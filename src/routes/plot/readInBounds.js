@@ -12,7 +12,7 @@ export async function readInBounds(res) {
     if (res.formData) postData = await res.formData()
     console.log(postData)
 
-    const data = await getInBounds()
+    const data = await getInBounds(postData)
 
     /* If we were aborted, you cannot respond */
     if (!res.aborted) {

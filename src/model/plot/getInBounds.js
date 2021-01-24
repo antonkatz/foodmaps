@@ -1,24 +1,31 @@
 import table from "./table"
 
-export default async function () {
-    return table.getAll()
+function castValuesToNumber(bounds) {
+    return Object.fromEntries(Object.entries(bounds).map(([k, v]) => {
+        try {
+            return [k, Number(v)]
+        } catch {
+            return [k,v]
+        }
+    }))
+}
 
-    // return {
-    //     type: "FeatureCollection",
-    //     "features": [
-    //         {
-    //             "type": "Feature",
-    //             "properties": {
-    //                 "name": "Coors Field",
-    //                 "amenity": "Baseball Stadium",
-    //                 "popupContent": "This is where the Rockies play!"
-    //             },
-    //             "geometry": {
-    //                 "type": "Point",
-    //                 "coordinates":
-    //                     [-63.548955, 44.662304],
-    //             }
-    //         }
-    //     ]
-    // }
+export default async function (bounds) {
+    bounds = castValuesToNumber(bounds)
+    const {south, north, east, west, diagonalLength} = bounds
+
+    /*
+    * Fixme. highly inefficent approach
+    * */
+    const allRecords = await table.getAll()
+    const maxRadius = diagonalLength / 3
+
+    return allRecords.filter(r => {
+        r = castValuesToNumber(r)
+        return r.lat < north
+        && r.lat > south
+        && r.lng > west
+        && r.lng < east
+        && r.radius < maxRadius
+    })
 }
