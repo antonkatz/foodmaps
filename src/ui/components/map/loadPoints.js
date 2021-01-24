@@ -20,6 +20,8 @@ export default function (map) {
         },
         transformData(data) {
             data = data || []
+            // sort sets the z-index properly
+            data = data.sort((a,b) => a.sizeRank - b.sizeRank)
             return data.map(plot => {
                 return {
                     "type": "Feature",
@@ -33,8 +35,7 @@ export default function (map) {
                     },
                     "geometry": {
                         "type": "Point",
-                        "coordinates":
-                            [plot.lng, plot.lat],
+                        "coordinates": [plot.lng, plot.lat],
                     }
                 }
             })

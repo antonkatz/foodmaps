@@ -1,14 +1,5 @@
-import table from "./table"
-
-function castValuesToNumber(bounds) {
-    return Object.fromEntries(Object.entries(bounds).map(([k, v]) => {
-        try {
-            return [k, Number(v)]
-        } catch {
-            return [k,v]
-        }
-    }))
-}
+import table                from "./table"
+import {castValuesToNumber} from "../../utils"
 
 export default async function (bounds) {
     bounds = castValuesToNumber(bounds)
@@ -20,12 +11,17 @@ export default async function (bounds) {
     const allRecords = await table.getAll()
     const maxRadius = diagonalLength / 3
 
-    return allRecords.filter(r => {
+    const filteredRecords = allRecords.filter(r => {
         r = castValuesToNumber(r)
         return r.lat < north
         && r.lat > south
         && r.lng > west
         && r.lng < east
         && r.radius < maxRadius
+    })
+
+
+    return filteredRecords.map(r => {
+        return {...r, sizeRank: Math.round(100 - r.radius / maxRadius * 100)}
     })
 }
