@@ -7,7 +7,7 @@ function handler(e) {
     const id = e.target?.feature?.properties?.id
 
     if (id) {
-        up.history.push("/plot/" + id)
+        up.visit("/plot/" + id)
     }
     return true
 }
