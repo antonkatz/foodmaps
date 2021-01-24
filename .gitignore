@@ -5,6 +5,9 @@ node_modules/
 .yalc
 
 dist/
+deploy/
 yarn-error.log
 
 server_pass.txt
+
+
