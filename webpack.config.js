@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack')
 const WebpackWatchedGlobEntries = require('webpack-watched-glob-entries-plugin');
 
 const baseConfig = {
@@ -29,6 +30,7 @@ const baseConfig = {
   },
   plugins: [
     new WebpackWatchedGlobEntries(),
+    new webpack.EnvironmentPlugin(['NODE_ENV'])
   ],
 
   resolve: {

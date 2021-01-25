@@ -14,6 +14,9 @@
       "signature": "62e83782c7c1df281ac812b4f641ebd0",
       "file": true,
       "replaced": "https://github.com/imba/imba"
+    },
+    "layer-compose": {
+      "signature": "cfd6ebe720d72589fcb52b05ad2baaf7"
     }
   }
 }
