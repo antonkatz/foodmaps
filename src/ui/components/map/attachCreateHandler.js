@@ -49,6 +49,7 @@ export default function (map) {
             radius = minRadius
 
             newLocationMarker = new L.circle(newLocation, {radius: minRadius}).addTo(map)
+            Map.create.setMarker(newLocationMarker)
 
             map.on('mousemove', e => {
                 radius = calcRadius(e).radius

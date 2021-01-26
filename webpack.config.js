@@ -68,6 +68,7 @@ module.exports = [{
 
     resolve: {
       fallback: {
+        "imba/core": path.resolve(__dirname, 'node_modules/imba/dist/imba.min.js'),
         "util": false,
         "os": false,
         "path": false,
