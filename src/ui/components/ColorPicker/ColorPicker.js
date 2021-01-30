@@ -4,12 +4,14 @@ import layerCompose from "layer-compose"
 
 
 export default layerCompose(
-    // $ => {
-    //     $.generateComponent({init: true})
-    // },
-
-    // get,
-    // attachToPlot,
+    {
+        onChange($, _) {
+            // external
+            $.changeColor(_)
+        }
+    },
+    require('./attach'),
+    require('./calc'),
     require('./events'),
-    require('./attach')
+    // require('./change'),
 )

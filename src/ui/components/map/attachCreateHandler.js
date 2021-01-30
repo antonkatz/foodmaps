@@ -1,4 +1,5 @@
 import {defaultMarkerStyle} from "./marker-styles"
+import Map from './Map'
 
 export default function (map) {
 

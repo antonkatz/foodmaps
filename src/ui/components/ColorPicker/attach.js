@@ -1,15 +1,11 @@
-// const Component = require('./component.imba').default
+export function attach($, _, opt) {
+    if (opt.init) _.dom = document.getElementById('story-color-picker')
+    if (opt.dom) _.dom = opt.dom
 
-export function attach(_) {
-    // const c = _.component
-    // console.log(c)
-    console.log('attach')
+    $.readColor()
+    _.dom.addEventListener('input', $.onChange.bind($))
 }
 
-// export function generateComponent($, _, opt) {
-//     if (opt.init) {
-//         _.component = new Component($)
-//     }
-//     console.log(_.component)
-//     return _.component
-// }
+export function readColor(_) {
+    _.color = _.dom.value
+}

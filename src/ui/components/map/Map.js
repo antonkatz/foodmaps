@@ -1,4 +1,5 @@
 import layerCompose from "layer-compose"
+import ColorPicker  from "../ColorPicker/ColorPicker"
 
 const create = [
     {
@@ -7,8 +8,11 @@ const create = [
         },
 
         changeColor(_, opt) {
-            _.marker.setStyle({fillColor: opt.color})
-        }
+            _.marker.setStyle({fillColor: opt.innerColor, color: opt.borderColor})
+        },
+    },
+    {
+        colorPicker: ColorPicker
     }
 ]
 

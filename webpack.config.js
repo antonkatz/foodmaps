@@ -66,9 +66,14 @@ module.exports = [{
         ]
     ),
 
+    externals: {
+      up: 'up'
+    },
+
     resolve: {
       fallback: {
-        "imba/core": path.resolve(__dirname, 'node_modules/imba/dist/imba.min.js'),
+        // "imba/core": path.resolve(__dirname, 'node_modules/imba/dist/imba.min.js'),
+        // "layerCompose": path.resolve(__dirname, '.yalc/layerCompose/lib/index.js'),
         "util": false,
         "os": false,
         "path": false,
