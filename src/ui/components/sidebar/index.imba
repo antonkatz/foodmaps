@@ -6,7 +6,7 @@ tag Sidebar
 
 	def render
 		<self>
-			<div id="sidebar">
+			<div id="sidebar" .visible=ctx.sidebar.isVisible>
 				<AddWhatsHere ctx=ctx>
 				if ctx.stories
 					<StoryList stories=ctx.stories>

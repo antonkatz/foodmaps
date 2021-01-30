@@ -2,17 +2,15 @@ html, body, #page-content {
     height: 100%;
 }
 
-#page-content {
-    position: relative;
+#page-content.sidebar-visible {
     display: grid;
     grid-template-columns: 4fr minmax(200px, 1fr);
 }
-
-.Sidebar {
-    grid-column: 2;
+#page-content {
+    position: relative;
 }
 
-#map-container {
+.sidebar-visible #map-container {
     grid-column: 1;
 }
 
@@ -30,4 +28,18 @@ html, body, #page-content {
     text-fill-color: transparent;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+#sidebar {
+    display: none;
+}
+
+#sidebar.visible {
+    grid-column: 2;
+    display: block;
+}
+
+.story {
+    border-right-width: 3px;
+    border-right-style: solid;
 }

@@ -2,7 +2,6 @@ import createPlot    from "../../actions/createPlot"
 
 export default function (app) {
     return app
-        // .get('/plot', handleCreate)
         .post('/plot', handleCreate)
 }
 

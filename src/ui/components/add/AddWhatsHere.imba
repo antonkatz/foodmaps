@@ -6,7 +6,7 @@ tag AddWhatsHere
 	def render
 		var action = ctx.plotId ? "/story?redirectBack" : ""
 		var form =
-			<form method="POST" accept-charset="utf-8" action=action up-target='#sidebar'>
+			<form method="POST" accept-charset="utf-8" action=action up-target='#sidebar' id='create-form'>
 				<input type='hidden' name='plotId' value=ctx.plotId>
 				<textarea name='story' rows=4>
 				<ColorPicker>

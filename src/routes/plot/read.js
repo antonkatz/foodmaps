@@ -8,7 +8,7 @@ export default function (app) {
         .post('/plot/map', readInBounds)
         .get('/plot/map', readInBounds)
         .get('/plot/:id', showPlot)
-        .get('/plot', homeHandler)
+        .get('/plot', showPlotActions)
 }
 
 async function showPlot(res, req) {
@@ -16,16 +16,34 @@ async function showPlot(res, req) {
 
     /* Can't return or yield from here without responding or attaching an abort handler */
     res.onAborted(() => {
-        res.aborted = true;
-    });
+        res.aborted = true
+    })
 
     const stories = await getStoriesForPlot(id)
 
-    const html = buildPageHtml("FoodMaps", 'home', {stories, plotId: id})
+    const html = buildPageHtml("FoodMaps", 'home',
+        {
+            stories,
+            plotId: id,
+            sidebar: {
+                isVisible: true
+            }
+        })
 
     /* If we were aborted, you cannot respond */
     if (!res.aborted) {
         res.end(html)
     }
+}
+
+async function showPlotActions(res, req) {
+    const html = buildPageHtml("FoodMaps", 'home',
+        {
+            sidebar: {
+                isVisible: true
+            }
+        })
+
+    res.end(html)
 }
 

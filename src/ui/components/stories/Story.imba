@@ -4,7 +4,10 @@ tag Story
 	prop story
 
 	def render
+		var storyElem = <div.story> getStoryText(story)
+		storyElem.setAttribute('style', "border-color:" + story.color)
+
 		<self>
-			<div> getStoryText(story)
+			storyElem
 
 export default Story
