@@ -3,6 +3,7 @@ html, body, #page-content {
 }
 
 #page-content {
+    position: relative;
     display: grid;
     grid-template-columns: 4fr minmax(200px, 1fr);
 }
@@ -13,4 +14,20 @@ html, body, #page-content {
 
 #map-container {
     grid-column: 1;
+}
+
+#logo {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    z-index: 1000;
+
+    font-size: 4em;
+
+    font-family: 'Potta One', cursive;
+    background: -webkit-linear-gradient(50deg, #6dc285, #198bbf);
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

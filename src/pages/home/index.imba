@@ -13,6 +13,8 @@ export default def Page ctx
 		<script>
 			const selectedPlotId = ctx.plotId
 
+		<span id='logo'> "hue"
+
 		map
 
 		<Sidebar ctx=ctx>
