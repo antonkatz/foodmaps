@@ -13,7 +13,7 @@ export default def Page ctx
 		<script>
 			const selectedPlotId = ctx.plotId
 
-		<span id='logo'> "hue"
+		<span id='logo'> "foodmaps"
 
 		map
 

@@ -8,8 +8,14 @@ export default layerCompose(
         onChange($, _) {
             // external
             $.changeColor(_)
+        },
+
+        getMarkerColors($, _) {
+            $.readColor()
+            return _
         }
     },
+
     require('./attach'),
     require('./calc'),
     require('./events'),

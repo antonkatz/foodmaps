@@ -7,8 +7,10 @@ function makeStyle() {
         fillColor: "#ff7800",
         color: '#000000',
         weight: 1,
-        opacity: 1,
-        fillOpacity: 0.8,
+
+        fillOpacity: 0.7,
+        opacity: 0.7, // stroke
+
         stokeWeight: 5,
     }
 }
