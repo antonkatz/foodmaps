@@ -4,7 +4,8 @@ import {defaultMarkerStyle} from "./marker-styles"
 
 const create = [
     {
-        setMarker(_, opt) {
+        setMarker($, _, opt) {
+            $.clearUnsaved()
             _.marker = opt
         },
 
@@ -12,7 +13,17 @@ const create = [
             // const cs = $.colorPicker.getMarkerColors()
             // _.marker.setStyle({fillColor: cs.innerColor, color: cs.borderColor})
             _.marker.setStyle(defaultMarkerStyle())
+            _.unsavedMarker = _.marker
+
             $.colorPicker.onChange()
+        },
+
+        clearUnsaved(_) {
+            try {
+                if (_.unsavedMarker) {
+                    _.unsavedMarker.remove()
+                }
+            } catch {}
         },
 
         changeColor(_, opt) {
