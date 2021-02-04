@@ -5,7 +5,7 @@ tag ColorPickerComp
 
 	def render
 		<self>
-			<input type='color' name='color' id='story-color-picker' @change=c.onChange>
+			<input type='color' name='color' value="#eed320" id='story-color-picker' @change=c.onChange>
 
 
 export default ColorPickerComp

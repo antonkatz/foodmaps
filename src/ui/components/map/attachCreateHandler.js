@@ -34,7 +34,7 @@ export default function (map) {
 
                 up.visit(
                     `/plot?state=creating&lat=${newLocation.lat}&lng=${newLocation.lng}&radius=${radius}`,
-                    {target: "#sidebar"}
+                    // {target: "#sidebar"}
                 )
             }
 
