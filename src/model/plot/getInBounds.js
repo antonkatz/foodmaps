@@ -12,7 +12,7 @@ export default async function (bounds) {
     * */
     const allRecords = await table.getAll()
     const maxRadius = diagonalLength / 3
-    const minRadius = diagonalLength / 30
+    const minRadius = diagonalLength / 450
     const maxPlotArea = Math.pow(maxRadius * Math.PI, 2)
 
     const locationFiltered = allRecords.map(castValuesToNumber).filter(r => {
