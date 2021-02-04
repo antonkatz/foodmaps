@@ -19,7 +19,7 @@ export default function (map) {
         style: function (feature) {
             const colors = {color: feature?.properties?.color}
             attachMarkerColor(colors)
-            debugger
+
             return defaultMarkerStyle(colors.innerColor, colors.borderColor)
         },
         transformData(data) {
