@@ -1,12 +1,12 @@
-export function defaultMarkerStyle() {
-    return makeStyle()
+export function defaultMarkerStyle(innerColor, borderColor) {
+    return makeStyle(innerColor, borderColor)
 }
 
-function makeStyle() {
+function makeStyle(innerColor, borderColor) {
     return {
-        fillColor: "#ff7800",
-        color: '#000000',
-        weight: 1,
+        fillColor: innerColor || "#ff7800",
+        color: borderColor || '#000000',
+        weight: 2,
 
         fillOpacity: 0.7,
         opacity: 0.7, // stroke

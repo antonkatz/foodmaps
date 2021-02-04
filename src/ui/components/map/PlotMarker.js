@@ -1,6 +1,7 @@
-import attachSelectHandler from "./attachSelectHandler"
+import attachSelectHandler  from "./attachSelectHandler"
+import {defaultMarkerStyle} from "./marker-styles"
 
-export default function ({latlng, radius, geoJSON}) {
+export default function ({latlng, radius}) {
     const m = new L.circle(latlng, {
         radius: radius || 10,
         bubblingMouseEvents: false

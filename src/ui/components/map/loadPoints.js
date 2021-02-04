@@ -1,5 +1,6 @@
 import PlotMarker           from "./PlotMarker"
 import {defaultMarkerStyle} from "./marker-styles"
+import {attachMarkerColor}  from "../ColorPicker/calc"
 
 export default function (map) {
     L.uGeoJSONLayer({
@@ -16,7 +17,10 @@ export default function (map) {
             return PlotMarker({latlng, radius: geoJsonPoint?.properties?.radius})
         },
         style: function (feature) {
-            return defaultMarkerStyle()
+            const colors = {color: feature?.properties?.color}
+            attachMarkerColor(colors)
+            debugger
+            return defaultMarkerStyle(colors.innerColor, colors.borderColor)
         },
         transformData(data) {
             data = data || []
