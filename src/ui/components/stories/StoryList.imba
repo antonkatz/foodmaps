@@ -6,7 +6,7 @@ tag StoryList
 	def render
 		var sortedByTime = stories.sort do $2.timestamp - $1.timestamp
 		<self>
-			<ul>
+			<ul.story-list>
 				for story in sortedByTime
 					<li>
 						<Story story=story>

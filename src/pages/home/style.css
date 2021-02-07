@@ -52,9 +52,29 @@ html, body, #page-content {
     display: block;
 }
 
-.story {
-    border-right-width: 3px;
+ul.story-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.story-container {
+    border-right-width: 0;
     border-right-style: solid;
+    padding: 4px 0;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.story {
+    background-color: white;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 10px;
+    margin-left: 5px;
+    border: 1px solid #acacac;
+    border-color: inherit;
+    border-left-width: 3px;
+    border-right-width: 0;
 }
 
 @media (min-width: 500px) and (max-width: 1000px) {
