@@ -31,6 +31,8 @@ export default function (title, pagePath, context = {}) {
 
 			<link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
 
+			<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />	
+
 			<title>${title}</title>
 						
 		</head>
