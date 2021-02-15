@@ -7,7 +7,7 @@ export default layerCompose(
     {
         onChange($, _) {
             // external
-            $.changeColor(_)
+            $.$.changeColor(_)
         },
 
         getMarkerColors($, _) {
