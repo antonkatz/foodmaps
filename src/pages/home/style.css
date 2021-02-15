@@ -45,22 +45,64 @@ html, body, #page-content {
 #sidebar {
     display: none;
     z-index: 2;
+
+    padding: 0.7em;
 }
 
 #sidebar.visible {
+    display: flex;
+    flex-direction: column;
     grid-column: 2;
-    display: block;
+}
+
+#sidebar .close {
+    text-decoration: none;
+    align-self: center;
+    color: #282828;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+}
+
+#create-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#create-form textarea {
+    margin-bottom: 0.6em;
+    align-self: stretch;
+}
+
+#create-form label {
+    color: #282828;
+}
+#create-form label input {
+    margin-left: 1em;
+    min-width: 4em;
+}
+
+#create-form input[type=submit] {
+    margin-top: 0.6em;
+    max-width: 10em;
+    border-radius: 0;
+    padding: 0.3em 0.3em;
+    border: 1px solid #5a5a5a
 }
 
 ul.story-list {
+    margin-right: -0.7em;
     list-style-type: none;
-    padding: 0;
+    /*padding: 0;*/
+    padding-top: 1em;
+    padding-left: 0.2em;
+    border-top: 1px lightblue dashed;
 }
 
 .story-container {
     border-right-width: 0;
     border-right-style: solid;
-    padding: 4px 0;
+    padding: 3px 0;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }

@@ -9,8 +9,10 @@ tag AddWhatsHere
 			<form method="POST" accept-charset="utf-8" action=action up-target='#sidebar' id='create-form'>
 				<input type='hidden' name='plotId' value=ctx.plotId>
 				<textarea name='story' rows=4>
-				<ColorPicker>
-				<input type='submit' value='Add story'>
+				<label>
+					"Color:"
+					<ColorPicker>
+				<input type='submit' value='Place Story'>
 		form.setAttribute('up-target', '#sidebar')
 
 		<self>
