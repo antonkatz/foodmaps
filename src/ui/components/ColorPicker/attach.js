@@ -8,7 +8,7 @@ export function attach($, _, opt) {
     _.dom.addEventListener('input', $.onChange.bind($))
 }
 
-export function readColor(_) {
+export function readColor($, _, opt) {
     _.color = _.dom?.value || Color.rgb(randomColorChannel(), randomColorChannel(), randomColorChannel())
 }
 

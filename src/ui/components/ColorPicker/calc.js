@@ -1,6 +1,6 @@
 import Color from 'color'
 
-export function onChange(_) {
+export function onChange($, _, opt) {
     _.innerColor = _.color || '#000000'
 
     let color = Color(_.color || '#000000')

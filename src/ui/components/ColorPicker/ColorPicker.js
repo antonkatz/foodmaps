@@ -5,12 +5,12 @@ import layerCompose from "layer-compose"
 
 export default layerCompose(
     {
-        onChange($, _) {
+        onChange($, _, opt) {
             // external
             $.$.changeColor(_)
         },
 
-        getMarkerColors($, _) {
+        getMarkerColors($, _, opt) {
             $.readColor()
             return _
         }

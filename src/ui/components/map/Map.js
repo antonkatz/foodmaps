@@ -9,7 +9,7 @@ const create = [
             _.marker = opt
         },
 
-        finalizeMarker($, _) {
+        finalizeMarker($, _, opt) {
             // const cs = $.colorPicker.getMarkerColors()
             // _.marker.setStyle({fillColor: cs.innerColor, color: cs.borderColor})
             _.marker.setStyle(defaultMarkerStyle())
@@ -18,7 +18,7 @@ const create = [
             $.colorPicker.onChange()
         },
 
-        clearUnsaved(_) {
+        clearUnsaved($, _, opt) {
             try {
                 if (_.unsavedMarker) {
                     _.unsavedMarker.remove()
@@ -26,7 +26,7 @@ const create = [
             } catch {}
         },
 
-        changeColor(_, opt) {
+        changeColor($, _, opt) {
             _.marker.setStyle({fillColor: opt.innerColor, color: opt.borderColor})
         },
     },

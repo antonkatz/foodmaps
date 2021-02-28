@@ -18,7 +18,7 @@ export default function (map) {
         },
         style: function (feature) {
             const colors = {color: feature?.properties?.color}
-            attachMarkerColor(colors)
+            attachMarkerColor(null, colors)
 
             return defaultMarkerStyle(colors.innerColor, colors.borderColor)
         },
